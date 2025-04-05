@@ -12,7 +12,8 @@
     "./container-css": "./styles/container.css"
   },
   "files": [
-    "styles/"
+    "styles/",
+    "dist/"
   ],
   "scripts": {
     "build": "tsc --build --clean && tsc --build"
