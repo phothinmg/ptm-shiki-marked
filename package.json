@@ -1,0 +1,38 @@
+{
+  "name": "ptm-shiki-marked",
+  "version": "0.1.0",
+  "description": "A marked extension for Shiki.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./shiki-css": "./styles/shiki.css",
+    "./twoslash-css": "./styles/twoslash.css",
+    "./container-css": "./styles/container.css"
+  },
+  "files": [
+    "styles/"
+  ],
+  "scripts": {
+    "build": "tsc --build --clean && tsc --build"
+  },
+  "keywords": [
+    "marked",
+    "marked extension",
+    "shiki",
+    "shiki-twoslash"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "marked": "^15.0.7"
+  },
+  "dependencies": {
+    "lwe8-build": "^0.1.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

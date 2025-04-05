@@ -1,0 +1,176 @@
+:root {
+  --ptm-code-block-lang: #67676c;
+  --ptm-code-line-highlight-color: rgba(142, 150, 170, 0.14);
+  --ptm-code-line-error-color: rgba(244, 63, 94, 0.14);
+  --ptm-code-line-warning-color: rgba(234, 179, 8, 0.14);
+  --ptm-line-diff-remove-color: rgba(244, 63, 94, 0.14);
+  --ptm-line-diff-remove-symbol-color: #b8272c;
+  --ptm-line-diff-add-color: rgba(16, 185, 129, 0.14);
+  --ptm-line-diff-add-symbol-color: #18794e;
+  --ptm-text-lines-number: #67676c;
+}
+html.dark,
+html[data-theme="dark"] {
+  --ptm-code-block-lang: #98989f;
+  --ptm-code-line-highlight-color: rgba(101, 117, 133, 0.16);
+  --ptm-code-line-error-color: rgba(244, 63, 94, 0.16);
+  --ptm-code-line-warning-color: rgba(234, 179, 8, 0.16);
+  --ptm-line-diff-remove-color: rgba(244, 63, 94, 0.16);
+  --ptm-line-diff-remove-symbol-color: #f66f81;
+  --ptm-line-diff-add-color: rgba(16, 185, 129, 0.16);
+  --ptm-line-diff-add-symbol-color: #3dd68c;
+  --ptm-text-lines-number: #98989f;
+}
+html.dark,
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* ===== Setting shiki dark themes */
+html.dark .shiki {
+  background-color: var(--shiki-dark-bg) !important;
+}
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+html[data-theme="dark"] .shiki {
+  background-color: var(--shiki-dark-bg) !important;
+}
+html[data-theme="dark"] .shiki span {
+  color: var(--shiki-dark) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+:root {
+  --shadow-pt: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================= <pre><code>{....}</code></pre> of shiki =========================================== */
+@supports selector(pre.shiki) {
+  pre {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 20px 0;
+    background: transparent;
+    overflow-x: auto;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+}
+@supports selector(pre.shiki code) {
+  code {
+    display: block;
+    padding: 0 24px;
+    width: fit-content;
+    min-width: 100%;
+    line-height: 1.7;
+    font-size: 0.875em;
+    color: var(--ptm-code-block-lang);
+    transition: color 0.5s;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+}
+
+/* # ShikiTransformer NotationHighlight  */
+pre.shiki code .highlighted {
+  background-color: var(--ptm-code-line-highlight-color);
+  transition: background-color 0.5s;
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% + 48px);
+  display: inline-block;
+}
+pre.shiki code .highlighted.error {
+  background-color: var(--ptm-code-line-error-color);
+}
+
+pre.shiki code .highlighted.warning {
+  background-color: var(--ptm-code-line-warning-color);
+}
+/* # ShikiTransformer NotationFocus  */
+pre.shiki.has-focused code .line:not(.focused) {
+  filter: blur(0.095rem);
+  opacity: 0.4;
+  transition: filter 0.35s, opacity 0.35s;
+}
+
+pre.shiki.has-focused code .line:not(.focused) {
+  opacity: 0.7;
+  transition: filter 0.35s, opacity 0.35s;
+}
+
+pre.shiki.has-focused code:hover .line:not(.focused) {
+  filter: blur(0);
+  opacity: 1;
+}
+/* # ShikiTransformer NotationDiff */
+pre.shiki.has-diff code .diff {
+  transition: background-color 0.5s;
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% + 48px);
+  display: inline-block;
+}
+
+pre.shiki.has-diff code .diff::before {
+  position: absolute;
+  left: 10px;
+}
+pre.shiki.has-diff code .diff.remove {
+  background-color: var(--ptm-line-diff-remove-color);
+  opacity: 0.7;
+}
+pre.shiki.has-diff code .diff.remove::before {
+  content: "-";
+  color: var(--ptm-line-diff-remove-symbol-color);
+}
+pre.shiki.has-diff code .diff.add {
+  background-color: var(--ptm-line-diff-add-color) !important;
+}
+pre.shiki.has-diff code .diff.add::before {
+  content: "+";
+  color: var(--ptm-line-diff-add-symbol-color);
+}
+/* ### Lines Number , can not use with .has-diff */
+pre.shiki:not(.has-diff) code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+pre.shiki:not(.has-diff) .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: var(--ptm-text-lines-number);
+}
