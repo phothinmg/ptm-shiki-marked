@@ -1,0 +1,44 @@
+/* transformerNotationDiff */
+
+:root,
+html[data-theme="light"] {
+  --ptm-line-diff-remove-color: rgba(244, 63, 94, 0.14);
+  --ptm-line-diff-remove-symbol-color: #b8272c;
+  --ptm-line-diff-add-color: rgba(16, 185, 129, 0.14);
+  --ptm-line-diff-add-symbol-color: #18794e;
+}
+html.dark,
+html[data-theme="dark"] {
+  --ptm-line-diff-remove-color: rgba(244, 63, 94, 0.16);
+  --ptm-line-diff-remove-symbol-color: #f66f81;
+  --ptm-line-diff-add-color: rgba(16, 185, 129, 0.16);
+  --ptm-line-diff-add-symbol-color: #3dd68c;
+}
+
+.shiki.has-diff code .diff {
+  transition: background-color 0.5s;
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% + 48px);
+  display: inline-block;
+}
+
+.shiki.has-diff code .diff::before {
+  position: absolute;
+  left: 10px;
+}
+.shiki.has-diff code .diff.remove {
+  background-color: var(--ptm-line-diff-remove-color);
+  opacity: 0.7;
+}
+.shiki.has-diff code .diff.remove::before {
+  content: "-";
+  color: var(--ptm-line-diff-remove-symbol-color);
+}
+.shiki.has-diff code .diff.add {
+  background-color: var(--ptm-line-diff-add-color) !important;
+}
+.shiki.has-diff code .diff.add::before {
+  content: "+";
+  color: var(--ptm-line-diff-add-symbol-color);
+}

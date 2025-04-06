@@ -9,6 +9,12 @@
     },
     "./shiki-css": "./styles/shiki.css",
     "./twoslash-css": "./styles/twoslash.css",
+    "./diff-css": "./styles/diff.css",
+    "./error-level-css": "./styles/error-level.css",
+    "./focus-css": "./styles/focus.css",
+    "./highlight-css": "./styles/highlight.css",
+    "./highlighted-word-css": "./styles/highlighted-word.css",
+    "./lines-number-css": "./styles/lines-number.css",
     "./container-css": "./styles/container.css"
   },
   "files": [
@@ -24,16 +30,24 @@
     "shiki",
     "shiki-twoslash"
   ],
-  "author": "",
+  "author": "Pho Thin Mg",
   "license": "MIT",
   "type": "module",
   "devDependencies": {
-    "marked": "^15.0.7"
-  },
-  "dependencies": {
-    "lwe8-build": "^0.1.7"
+    "@types/node": "^22.14.0",
+    "marked": "^15.0.7",
+    "shiki": "^3.2.1",
+    "typescript": "^5.8.3"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phothinmg/ptm-shiki-marked.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phothinmg/ptm-shiki-marked/actions"
   }
 }

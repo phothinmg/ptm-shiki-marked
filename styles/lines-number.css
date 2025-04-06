@@ -1,0 +1,22 @@
+:root {
+  --ptm-text-lines-number: #67676c;
+}
+html.dark,
+html[data-theme="dark"] {
+  --ptm-text-lines-number: #98989f;
+}
+
+/* ### Lines Number , can not use with .has-diff */
+.shiki:not(.has-diff) code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+.shiki:not(.has-diff) .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: var(--ptm-text-lines-number);
+}

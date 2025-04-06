@@ -1,0 +1,19 @@
+/* transformerNotationHighlight */
+
+:root,
+html[data-theme="light"] {
+  --ptm-code-line-highlight-color: rgba(142, 150, 170, 0.14);
+}
+html.dark,
+html[data-theme="dark"] {
+  --ptm-code-line-highlight-color: rgba(101, 117, 133, 0.16);
+}
+
+.shiki code .highlighted {
+  background-color: var(--ptm-code-line-highlight-color);
+  transition: background-color 0.5s;
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% + 48px);
+  display: inline-block;
+}

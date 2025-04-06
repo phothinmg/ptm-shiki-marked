@@ -1,10 +1,10 @@
-/* ============================================================== Two Slash ============================================= */
+/* Copy from https://github.com/shikijs/shiki/blob/main/packages/twoslash/style-rich.css */
 :root {
   --twoslash-border-color: #8888;
   --twoslash-underline-color: currentColor;
   --twoslash-highlighted-border: #c37d0d50;
   --twoslash-highlighted-bg: #c37d0d20;
-  --twoslash-popup-bg: inherit;
+  --twoslash-popup-bg: #d1d1d1;
   --twoslash-popup-color: inherit;
   --twoslash-popup-shadow: rgba(0, 0, 0, 0.08) 0px 1px 4px;
   --twoslash-docs-color: #888;
@@ -26,6 +26,10 @@
   --twoslash-tag-annotate-bg: #1ba67320;
 }
 
+html.dark,
+html[data-theme="dark"] {
+  --twoslash-popup-bg: #333;
+}
 /* === Two Slash ===== */
 /* Respect people's wishes to not have animations */
 @media (prefers-reduced-motion: reduce) {

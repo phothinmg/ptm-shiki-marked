@@ -1,0 +1,20 @@
+/* transformerNotationErrorLevel */
+
+:root,
+html[data-theme="light"] {
+  --ptm-code-line-error-color: rgba(244, 63, 94, 0.14);
+  --ptm-code-line-warning-color: rgba(234, 179, 8, 0.14);
+}
+html.dark,
+html[data-theme="dark"] {
+  --ptm-code-line-error-color: rgba(244, 63, 94, 0.16);
+  --ptm-code-line-warning-color: rgba(234, 179, 8, 0.16);
+}
+
+.shiki code .highlighted.error {
+  background-color: var(--ptm-code-line-error-color);
+}
+
+.shiki code .highlighted.warning {
+  background-color: var(--ptm-code-line-warning-color);
+}

@@ -1,4 +1,7 @@
-:root {
+/* Code block container , wrapper for shiki highlight block */
+
+:root,
+html[data-theme="light"] {
   --ptm-code-block-bg: #f6f6f7;
   --ptm-code-block-lang: #67676c;
   --ptm-code-copy-code-border-color: #e2e2e3;
@@ -19,14 +22,9 @@ html[data-theme="dark"] {
   --icon-copied: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='rgba(128,128,128,1)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24'%3E%3Crect width='8' height='4' x='8' y='2' rx='1' ry='1'/%3E%3Cpath d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/%3E%3Cpath d='m9 14 2 2 4-4'/%3E%3C/svg%3E");
 }
 
-html.dark,
-html[data-theme="dark"] {
-  color-scheme: dark;
-}
-
-/* Shiki code block */
-div.ptm-code {
+.ptm-code {
   position: relative;
+  margin: auto;
   width: 97%;
   background-color: var(--ptm-code-block-bg);
   overflow-x: auto;
@@ -35,12 +33,12 @@ div.ptm-code {
   margin-bottom: 7px;
 }
 @media (max-width: 640px) {
-  div.ptm-code {
+  .ptm-code {
     border-radius: 8px;
     margin: 16px 0;
   }
 }
-div.ptm-code > span.lang {
+.ptm-code > span.lang {
   position: absolute;
   top: 3px;
   right: 9px;
@@ -50,9 +48,11 @@ div.ptm-code > span.lang {
   -webkit-user-select: none;
   user-select: none;
   color: var(--ptm-code-block-lang);
-  transition: color 0.4s, opacity 0.4s;
+  transition:
+    color 0.4s,
+    opacity 0.4s;
 }
-div.ptm-code > button.ptm-copy {
+.ptm-code > button.ptm-copy {
   direction: ltr;
   position: absolute;
   top: 12px;
@@ -69,25 +69,29 @@ div.ptm-code > button.ptm-copy {
   background-position: 50%;
   background-size: 20px;
   background-repeat: no-repeat;
-  transition: border-color 0.25s, background-color 0.25s, opacity 0.25s;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    opacity 0.25s;
 }
-div.ptm-code:hover > button.ptm-copy,
-div.ptm-code > button.ptm-copy:focus {
+.ptm-code:hover > button.ptm-copy,
+.ptm-code > button.ptm-copy:focus {
   opacity: 1;
 }
-div.ptm-code > button.ptm-copy:hover,
-div.ptm-code > button.ptm-copy.copied {
+.ptm-code > button.ptm-copy:hover,
+.ptm-code > button.ptm-copy.copied {
   border-color: var(--ptm-code-copy-code-border-color);
   background-color: var(--ptm-code-copy-code-hover-bg);
 }
-div.ptm-code > button.ptm-copy.copied,
-div.ptm-code > button.ptm-copy:hover.copied {
+
+.ptm-code > button.ptm-copy.copied,
+.ptm-code > button.ptm-copy:hover.copied {
   border-radius: 0 4px 4px 0;
   background-color: var(--ptm-code-copy-code-hover-bg);
   background-image: var(--icon-copied);
 }
-div.ptm-code > button.ptm-copy.copied:before,
-div.ptm-code > button.ptm-copy:hover.copied:before {
+.ptm-code > button.ptm-copy.copied:before,
+.ptm-code > button.ptm-copy:hover.copied:before {
   position: relative;
   top: -1px;
   transform: translate(calc(-100% - 1px));
@@ -108,7 +112,7 @@ div.ptm-code > button.ptm-copy:hover.copied:before {
   white-space: nowrap;
   content: "Copied";
 }
-div.ptm-code:hover > button.ptm-copy + span.lang,
-div.ptm-code > button.ptm-copy:focus + span.lang {
+.ptm-code:hover > button.ptm-copy + span.lang,
+.ptm-code > button.ptm-copy:focus + span.lang {
   opacity: 0;
 }

@@ -1,0 +1,20 @@
+/* transformerNotationWordHighlight */
+
+:root,
+html[data-theme="light"] {
+  --ptm-bg-soft: #f6f6f7;
+  --ptm-border: #c2c2c4;
+}
+html.dark,
+html[data-theme="dark"] {
+  --ptm-bg-soft: #202127;
+  --ptm-border: #3c3f44;
+}
+
+.shiki code .highlighted-word {
+  background-color: var(--ptm-bg-soft);
+  border: 1px solid var(--ptm-border);
+  padding: 1px 3px;
+  margin: -1px -3px;
+  border-radius: 4px;
+}
