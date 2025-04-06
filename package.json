@@ -36,7 +36,6 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "marked": "^15.0.7",
-    "shiki": "^3.2.1",
     "typescript": "^5.8.3"
   },
   "publishConfig": {
