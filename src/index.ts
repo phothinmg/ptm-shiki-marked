@@ -2,7 +2,10 @@ import { MarkedExtension } from "marked";
 import * as shiki from "shiki";
 
 export type ShikiMarkedOptions = {
-  hightlighter: shiki.Highlighter;
+  hightlighter: shiki.HighlighterGeneric<
+    shiki.BundledLanguage,
+    shiki.BundledTheme
+  >;
   themes: {
     light: shiki.BundledTheme;
     dark: shiki.BundledTheme;
@@ -17,7 +20,7 @@ export type ShikiMarkedOptions = {
  * A marked extension for Shiki.js.
  *
  * @param {ShikiMarkedOptions} opts
- * @param {shiki.Highlighter} opts.hightlighter
+ * @param {shiki.HighlighterGeneric<shiki.BundledLanguage,shiki.BundledTheme>} opts.hightlighter
  * @param {{light: shiki.BundledTheme, dark: shiki.BundledTheme}} opts.themes
  * @param {shiki.ShikiTransformer[]} opts.transformers
  * @param {shiki.ShikiTransformer[]} [opts.twoslashTransformers]
